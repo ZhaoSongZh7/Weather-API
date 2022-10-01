@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+</head>
+<body>
+    <div class="header">
+        <div class="specific-time-location">
+            <div class="specific-date"></div>
+            <div class="specific-time"></div>
+        </div>
+        <div class="search-bar-container">
+            <input type="text" name="" id="search-bar" placeholder="Search City">
+            <svg class="weather-searcher-button" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+        </div>
+        <label class="switch">
+            <input class="switch-checkbox" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <!-- <button class="image-generator-button">Search Weather</button> -->    </div>
+    <div class="content">
+        <div class="location">
+            <div class="location-value"></div>
+        </div>
+        <div class="temperature">
+            <div class="temperature-value"></div>
+        </div>
+        <div class="general-weather">
+            <div class="general-weather-value"></div>
+        </div>
+        <div class="lowest-highest-temperature-container">
+            <div class="highest-temperature">
+                <!-- H: -->
+                <div class="highest-temperature-value"></div>
+            </div>
+            <div class="lowest-temperature">
+                <!-- L: -->
+                <div class="lowest-temperature-value"></div>
+            </div>
+        </div>
+        <div class="entire-weather-today">
+            <!-- <div class="hour-weather">
+                <div class="time-today">
+                    10 PM
+                </div>
+                <img src="" alt="">
+                <div class="hour-temperature">
+                    63
+                </div>
+            </div>
+            <div class="hour-weather">
+                test
+            </div>
+            <div class="hour-weather">
+                test
+            </div>
+            <div class="hour-weather">
+                test
+            </div>
+            <div class="hour-weather">
+                test
+            </div>
+            <div class="hour-weather">
+                test
+            </div> -->
+        </div>
+        <div class="extra-weather-info"></div>
+        <!-- <img src="#"> -->
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

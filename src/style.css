@@ -1,0 +1,231 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url('./assets/daytimebackground.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div {
+    margin-top: 5px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    margin-left: 40px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(226, 68, 68);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.search-bar-container {
+    position: relative;
+}
+
+#search-bar {
+    border-radius: 4px;
+    border: 2px solid rgb(199, 199, 199);
+    padding: 10px 15px 10px 15px;
+    background-color: rgb(255, 255, 255);
+}
+
+#search-bar:focus {
+    outline: none;
+}
+
+.weather-searcher-button {
+    width: 25px;
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    cursor: pointer;
+}
+
+/* Content */
+
+.content {
+    /* background-color: lightblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* width: 1000px;
+    height: 800px; */
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr); */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* .temperature, .lowest-temperature, .highest-temperature, .location, .humidity, .pressure {
+    font-weight: bold;
+} */
+
+.temperature-value, .general-weather-value, .lowest-temperature-value, .highest-temperature-value, .location-value, .humidity-value, .pressure-value {
+    font-weight: normal;
+    font-size: 40px;
+}
+
+.temperature-value {
+    font-size: 80px;
+}
+
+.location-value {
+    font-size: 30px;
+}
+
+.humidity, .pressure, .feels-like {
+    font-size: 25px;
+    background-color: rgb(68, 101, 138);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.feels-like {
+    grid-column: 1 / 3;
+}
+
+.temperature {
+    grid-column: 1 / 3;
+}
+
+.lowest-highest-temperature-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lowest-temperature, .highest-temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lowest-temperature-value, .highest-temperature-value {
+    font-size: 30px;
+}
+
+.highest-temperature {
+    margin-right: 20px;
+}
+
+.location {
+    grid-column: 1 / 3;
+}
+
+.entire-weather-today {
+    background-color: rgb(68, 101, 138);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+
+.hour-weather {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.general-weather-value {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    font-size: 30px;
+}
+
+.extra-weather-info {
+    font-size: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    text-align: center;
+    grid-template-rows: auto;
+}
+
+.specific-time-location {
+    margin-right: 1vw;
+    color: white;
+    font-size: 15px;
+    width: 100px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media all and (max-width: 500px) {
+    .entire-weather-today {
+        width: 300px;
+        overflow-x: scroll;
+    }
+    .specific-time-location {
+        margin-right: 3px;
+    }
+    .switch {
+        margin-left: 20px;
+    }
+    #search-bar {
+        width: 100px;
+    }
+}
