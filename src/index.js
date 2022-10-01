@@ -75,14 +75,14 @@ function loadWeather() {
     async function getLatitudeAndLongitudeFromCity() {
         /*  Gets the latitude and longitude from a city using the Geocoding API and uses this to find out the time and if it's night
         or day in a specific city. */
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchBarInputValue}&appid=4c14c2e22c375e91889eec21c7c41367`, {mode: 'cors'})
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${searchBarInputValue}&appid=4c14c2e22c375e91889eec21c7c41367`, {mode: 'cors'})
         const coordinateData = await response.json();
+        latitudeCoordinate = (coordinateData[0].lat).toFixed(2);
+        longitudeCoordinate = (coordinateData[0].lon).toFixed(2);
         const timestamp = Date.now();
         const point = [longitudeCoordinate, latitudeCoordinate];
         const time = ts.getFuzzyLocalTimeFromPoint(timestamp, point);
         const zonedTimeGetHours = zonedTimeToUtc(new Date(), time._z.name);
-        latitudeCoordinate = (coordinateData[0].lat).toFixed(2);
-        longitudeCoordinate = (coordinateData[0].lon).toFixed(2);
         specificDate.textContent = formatISO9075(new Date(zonedTimeGetHours), { representation: 'date' });        
         specificTime.textContent = formatISO9075(new Date(zonedTimeGetHours), { representation: 'time' });                
         if (timeOfDay(getHours(zonedTimeGetHours)) == 'morning') {
@@ -101,7 +101,7 @@ function loadWeather() {
     async function getWeatherFromLocation() {
         // Fetches the 3-hour interval weather in a specific location.
         getWeatherTodayFromLocation();
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitudeCoordinate}&lon=${longitudeCoordinate}&appid=61cf7e020a6ff91aa13c348ebe505012`, {mode: 'cors'})
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitudeCoordinate}&lon=${longitudeCoordinate}&appid=61cf7e020a6ff91aa13c348ebe505012`, {mode: 'cors'})
         const weatherData = await response.json();
         for (let i = 0; i < 8; i++) {
             createAddHourlyWeatherReports(intlFormat(new Date(weatherData.list[i].dt_txt), {hour: 'numeric', day: 'numeric', month: 'numeric'}), Math.round(1.8 * (weatherData.list[i].main.temp - 273) + 32));
