@@ -86,16 +86,14 @@ function loadWeather() {
         specificDate.textContent = formatISO9075(new Date(zonedTimeGetHours), { representation: 'date' });        
         specificTime.textContent = formatISO9075(new Date(zonedTimeGetHours), { representation: 'time' });                
         if (timeOfDay(getHours(zonedTimeGetHours)) == 'morning') {
-            console.log('test')
             document.body.style.backgroundImage = "url('./2f147032eb97eae1af5c.jpg')"
         } else if (timeOfDay(getHours(zonedTimeGetHours)) == 'afternoon') {
             document.body.style.backgroundImage = "url(./bb8d8d76535ee8f53f4f.jpg)"
         } else if (timeOfDay(getHours(zonedTimeGetHours)) == 'night') {
-            console.log('test2')
             document.body.style.backgroundImage = "url(./5a5a3b4438cac5d45708.jpg)"
         }
         getWeatherFromLocation().catch((err) => {
-            console.log(err);
+            alert(err);
         });
     }
     async function getWeatherFromLocation() {
@@ -141,7 +139,6 @@ function loadWeather() {
         humidity.appendChild(weatherHumidity);
         pressure.appendChild(weatherPressure);
         feelsLike.appendChild(weatherFeelsLike);
-        console.log(weatherDataToday)
     }
     getLatitudeAndLongitudeFromCity().catch((err) => {
         if (err) {
